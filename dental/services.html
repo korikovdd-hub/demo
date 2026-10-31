@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Услуги — ClearSmile</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
+<style>
+:root{--bg:#f4f9fc;--ink:#0c2740;--mut:#5b738a;--line:#d7e6f0;--acc:#0284c7;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1100px,calc(100% - 32px));margin-inline:auto}a{color:inherit;text-decoration:none}
+.top{background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.bar{height:66px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:Outfit,sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:-.03em;color:#0369a1}
+nav{display:flex;gap:16px;font-size:.9rem;font-weight:600;color:var(--mut)}
+.hero{padding:36px 0 20px;display:grid;gap:24px;align-items:center}@media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr}}
+.hero-photo{border-radius:28px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 32px 60px -32px rgba(2,100,160,.45);background:#bae6fd}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:Outfit,sans-serif;font-size:clamp(2rem,4.5vw,3rem);line-height:1.08;letter-spacing:-.03em;margin:10px 0 14px}
+.lead{color:var(--mut);font-size:1.05rem;max-width:42ch}
+.btn{display:inline-flex;padding:12px 18px;background:var(--acc);color:#fff;border-radius:12px;font-weight:700;border:0;cursor:pointer;font:inherit;text-decoration:none;align-items:center;justify-content:center}
+.btn.ghost{background:#fff;color:var(--acc);border:1px solid var(--line)}
+section{padding:40px 0}h2{font-family:Outfit,sans-serif;font-size:1.55rem;margin-bottom:16px}
+.grid{display:grid;gap:14px}@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 24px -18px rgba(12,74,110,.35)}
+.mut{color:var(--mut);font-size:.92rem}
+.doc{text-align:center}.doc .ava{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 12px;border:3px solid #e0f2fe;background:#e0f2fe}
+.doc .ava img{width:100%;height:100%;object-fit:cover;display:block}
+footer{padding:28px 0 120px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:var(--mut);font-size:.9rem}
+form{display:grid;gap:8px;max-width:440px}label{font-size:.85rem;font-weight:600}
+input,select,textarea{padding:11px 12px;border-radius:10px;border:1px solid var(--line);font:inherit;background:#fff}
+</style></head><body>
+<div class="mark">Демо-проект</div>
+<header class="top"><div class="wrap bar"><a class="logo" href="index.html">ClearSmile</a>
+<nav><a href="services.html">Услуги</a><a href="doctors.html">Врачи</a><a href="booking.html">Запись</a></nav></div></header>
+
+<section class="wrap" style="padding-top:36px"><h1 style="font-family:Outfit,sans-serif;font-size:2rem;margin-bottom:8px">Услуги</h1>
+<p class="mut" style="margin-bottom:22px">Демо-прайс вымышленной клиники.</p>
+<div class="grid">
+<div class="card"><strong>Гигиена</strong><p class="mut" style="margin:8px 0">Профчистка AirFlow</p><div style="font-weight:800;color:#0369a1">4 900 ₽</div></div>
+<div class="card"><strong>Лечение кариеса</strong><p class="mut" style="margin:8px 0">С эстетической реставрацией</p><div style="font-weight:800;color:#0369a1">от 6 500 ₽</div></div>
+<div class="card"><strong>Отбеливание</strong><p class="mut" style="margin:8px 0">Клинический курс</p><div style="font-weight:800;color:#0369a1">18 000 ₽</div></div>
+<div class="card"><strong>Имплант (демо)</strong><p class="mut" style="margin:8px 0">Консультация + план</p><div style="font-weight:800;color:#0369a1">по смете</div></div>
+</div>
+<p style="margin-top:24px"><a class="btn" href="booking.html">Записаться</a></p>
+</section>
+<footer class="wrap"><div>© ClearSmile · демо</div><a class="btn" data-kwork href="https://kwork.ru/user/korikovdd">Заказать на Kwork</a></footer>
+
+<style>
+#demo-chip{position:fixed;right:14px;bottom:14px;z-index:70;max-width:min(360px,calc(100vw - 28px));font-size:13px}
+#demo-chip-toggle{width:100%;text-align:left;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.2);background:#0c4a6e;border:1px solid #0369a1;color:#e0f2fe}
+#demo-chip-panel{display:none;margin-top:8px;border-radius:14px;padding:14px;max-height:min(50vh,360px);overflow:auto;background:#082f49;border:1px solid #0369a1;color:#bae6fd}
+#demo-chip-panel.open{display:block}
+#demo-chip-panel ul{margin:8px 0 12px 18px}
+#demo-chip .kw{display:inline-flex;margin-top:4px;padding:10px 14px;border-radius:10px;font-weight:800;font-size:12px;text-decoration:none;background:#38bdf8;color:#082f49}
+@media(max-width:390px){#demo-chip{left:10px;right:10px;max-width:none}#demo-chip-panel{max-height:38vh}}
+.mark{position:fixed;top:14px;left:14px;z-index:60;background:#dc2626;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px}
+</style>
+<aside id="demo-chip"><button type="button" id="demo-chip-toggle" aria-expanded="false">Демо-проект · что сделано ▾</button>
+<div id="demo-chip-panel"><strong>ClearSmile — стоматология</strong><ul><li>Clinical UI</li><li>Интерьер клиники</li><li>Портреты врачей</li><li>Услуги / запись</li><li>Мультистраница</li><li>Адаптив 5 ширин</li></ul>
+<a class="kw" data-kwork href="KWORK_PROFILE_URL">Хочу такой → заказать на Kwork</a></div></aside>
+<script>
+(function(){
+  var btn=document.getElementById('demo-chip-toggle'), panel=document.getElementById('demo-chip-panel');
+  if(btn&&panel){btn.addEventListener('click',function(){var o=panel.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('form[data-demo-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var box=f.querySelector('[data-thanks]'); if(!box){box=document.createElement('p');box.setAttribute('data-thanks','');f.appendChild(box);}
+      box.textContent='Спасибо! Это демо-форма — заявка никуда не отправлена.'; box.style.marginTop='12px'; f.reset();
+    });
+  });
+})();
+</script>
+<script src="../config.js"></script>
+<script src="../kwork-link.js"></script>
+</body></html>

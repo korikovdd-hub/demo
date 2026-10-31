@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torque Lab — демо автосервис</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preload" as="image" href="img/car-720.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
+<style>
+:root{--bg:#0a0a0a;--ink:#f5f5f5;--mut:#a3a3a3;--line:#262626;--acc:#f59e0b;--card:#141414}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{width:min(1080px,calc(100% - 28px));margin-inline:auto}a{color:inherit;text-decoration:none}
+.top{padding:16px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.logo{font-family:Outfit,sans-serif;font-weight:800;letter-spacing:-.03em}
+.hero{padding:48px 0 32px;display:grid;gap:24px}@media(min-width:900px){.hero{grid-template-columns:1.15fr .85fr;align-items:center}}
+.hero-photo{border-radius:20px;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line);background:#171717;box-shadow:0 30px 60px -30px #f59e0b55}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:Outfit,sans-serif;font-size:clamp(2.2rem,5vw,3.3rem);line-height:1.05;letter-spacing:-.03em;margin:10px 0 14px}
+.lead{color:var(--mut);max-width:40ch;font-size:1.05rem}
+.btn{display:inline-flex;padding:12px 18px;background:var(--acc);color:#111;border-radius:12px;font-weight:800;border:0;cursor:pointer;font:inherit;text-decoration:none;align-items:center}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid #404040}
+section{padding:40px 0;border-top:1px solid var(--line)}h2{font-family:Outfit,sans-serif;font-size:1.55rem;margin-bottom:14px}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.stat strong{display:block;font-family:Outfit,sans-serif;font-size:1.8rem;color:var(--acc)}
+.mut{color:var(--mut);font-size:.92rem}
+.quiz .step{display:none}.quiz .step.on{display:block}
+.quiz button.opt{display:block;width:100%;text-align:left;padding:12px 14px;margin:8px 0;border-radius:12px;border:1px solid #404040;background:#171717;color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+.quiz button.opt:hover{border-color:var(--acc)}
+.faq details{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;background:var(--card)}
+.faq summary{cursor:pointer;font-weight:700}
+form{display:grid;gap:8px;max-width:420px}label{font-size:.85rem;font-weight:600}
+input,select{padding:11px;border-radius:10px;border:1px solid #404040;background:#171717;color:#fff;font:inherit}
+footer{padding:28px 0 120px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:var(--mut);font-size:.9rem;border-top:1px solid var(--line)}
+</style></head><body>
+<div class="mark">Демо-проект</div>
+<header class="wrap top"><div class="logo">Torque Lab</div><a class="btn ghost" href="#quiz">Оценка</a></header>
+<section class="wrap hero">
+<div>
+<p class="mut" style="font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem">Autoservice · dark · демо</p>
+<h1>Честный сервис. Оценка за 60 секунд.</h1>
+<p class="lead">Вымышленный автосервис Torque Lab. Квиз стоимости, счётчики и демо-запись — без реальных телефонов.</p>
+<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+<a class="btn" href="#quiz">Рассчитать</a>
+<a class="btn ghost" href="#book">Записаться</a>
+</div>
+</div>
+<div class="hero-photo"><img src="img/car-720.webp" srcset="img/car-720.webp 720w, img/car.webp 1280w" sizes="(max-width:900px) 100vw, 50vw" width="1280" height="720" alt="Автомобиль в сервисе" fetchpriority="high"></div>
+</section>
+<section class="wrap"><div class="stats">
+<div class="stat"><strong data-count="12">0</strong><span class="mut">лет опыта</span></div>
+<div class="stat"><strong data-count="4800">0</strong><span class="mut">машин</span></div>
+<div class="stat"><strong data-count="98">0</strong><span class="mut">% рекомендаций</span></div>
+</div></section>
+<section class="wrap quiz" id="quiz"><h2>Квиз-оценка стоимости</h2>
+<div class="step on" data-s="1"><p class="mut">Что нужно?</p>
+<button type="button" class="opt" data-next="2" data-v="ТО">Плановое ТО</button>
+<button type="button" class="opt" data-next="2" data-v="тормоза">Тормоза</button>
+<button type="button" class="opt" data-next="2" data-v="диагностика">Диагностика</button>
+</div>
+<div class="step" data-s="2"><p class="mut">Класс авто</p>
+<button type="button" class="opt" data-next="3" data-v="B">B-класс</button>
+<button type="button" class="opt" data-next="3" data-v="C">C / кроссовер</button>
+<button type="button" class="opt" data-next="3" data-v="prem">Премиум</button>
+</div>
+<div class="step" data-s="3"><p id="est" style="font-size:1.4rem;font-weight:800;margin:12px 0"></p>
+<p class="mut">Ориентир демо, не оферта.</p>
+<a class="btn" href="#book" style="margin-top:12px">Записаться</a>
+</div>
+</section>
+<section class="wrap faq" id="faq"><h2>FAQ</h2>
+<details><summary>Сколько занимает ТО?</summary><p class="mut" style="margin-top:8px">Обычно 2–4 часа в демо-сценарии.</p></details>
+<details><summary>Даёте гарантию?</summary><p class="mut" style="margin-top:8px">В демо — да, на работы 6 месяцев.</p></details>
+</section>
+<section class="wrap" id="book"><h2>Запись</h2>
+<form data-demo-form>
+<label for="an">Имя</label><input id="an" name="n" required>
+<label for="ap">Телефон</label><input id="ap" name="p" required placeholder="+7 (000) 000-00-00">
+<label for="as">Услуга</label><select id="as" name="s"><option>ТО</option><option>Тормоза</option><option>Диагностика</option></select>
+<button class="btn" type="submit" style="margin-top:8px">Отправить</button>
+</form></section>
+<footer class="wrap"><div>© Torque Lab · демо · без реальных контактов</div>
+<a class="btn" data-kwork href="https://kwork.ru/user/korikovdd">Заказать на Kwork</a></footer>
+
+<style>
+#demo-chip{position:fixed;right:14px;bottom:14px;z-index:70;max-width:min(360px,calc(100vw - 28px));font-size:13px}
+#demo-chip-toggle{width:100%;text-align:left;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.2);background:#f59e0b;border:1px solid #fbbf24;color:#111}
+#demo-chip-panel{display:none;margin-top:8px;border-radius:14px;padding:14px;max-height:min(50vh,360px);overflow:auto;background:#171717;border:1px solid #404040;color:#a3a3a3}
+#demo-chip-panel.open{display:block}
+#demo-chip-panel ul{margin:8px 0 12px 18px}
+#demo-chip .kw{display:inline-flex;margin-top:4px;padding:10px 14px;border-radius:10px;font-weight:800;font-size:12px;text-decoration:none;background:#f59e0b;color:#111}
+@media(max-width:390px){#demo-chip{left:10px;right:10px;max-width:none}#demo-chip-panel{max-height:38vh}}
+.mark{position:fixed;top:14px;left:14px;z-index:60;background:#dc2626;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px}
+</style>
+<aside id="demo-chip"><button type="button" id="demo-chip-toggle" aria-expanded="false">Демо-проект · что сделано ▾</button>
+<div id="demo-chip-panel"><strong>Torque Lab — автосервис</strong><ul><li>Dark premium UI</li><li>Иллюстрация авто</li><li>Квиз-оценка</li><li>Счётчики + FAQ</li><li>Демо-запись</li><li>Адаптив 5 ширин</li></ul>
+<a class="kw" data-kwork href="KWORK_PROFILE_URL">Хочу такой → заказать на Kwork</a></div></aside>
+<script>
+(function(){
+  var ans={};
+  document.querySelectorAll('.quiz .opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      var step=b.closest('.step');
+      if(step.dataset.s==='1')ans.job=b.dataset.v; else if(step.dataset.s==='2')ans.cls=b.dataset.v;
+      step.classList.remove('on');
+      var next=document.querySelector('.quiz .step[data-s="'+b.dataset.next+'"]');
+      if(next){next.classList.add('on');
+        if(b.dataset.next==='3'){
+          var base={'ТО':6500,'тормоза':12000,'диагностика':2500}[ans.job]||5000;
+          var mul={'B':1,'C':1.25,'prem':1.7}[ans.cls]||1;
+          document.getElementById('est').textContent='Ориентир: '+Math.round(base*mul).toLocaleString('ru-RU')+' ₽';
+        }
+      }
+    });
+  });
+  // counters
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var t=+el.dataset.count, n=0, steps=40;
+    var iv=setInterval(function(){n++; el.textContent=Math.round(t*n/steps); if(n>=steps)clearInterval(iv);},20);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('demo-chip-toggle'), panel=document.getElementById('demo-chip-panel');
+  if(btn&&panel){btn.addEventListener('click',function(){var o=panel.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('form[data-demo-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var box=f.querySelector('[data-thanks]'); if(!box){box=document.createElement('p');box.setAttribute('data-thanks','');f.appendChild(box);}
+      box.textContent='Спасибо! Это демо-форма — заявка никуда не отправлена.'; box.style.marginTop='12px'; f.reset();
+    });
+  });
+})();
+</script>
+<script src="../config.js"></script>
+<script src="../kwork-link.js"></script>
+
+</body></html>

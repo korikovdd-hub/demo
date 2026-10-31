@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live demos — типы сайтов</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"></noscript>
+<meta name="description" content="Восемь демо разных типов сайтов для портфолио.">
+<style>
+:root{--bg:#0b1020;--card:#141b2d;--ink:#e8eefc;--muted:#93a0bd;--acc:#6366f1;--line:#243049}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,sans-serif;background:radial-gradient(1200px 600px at 10% -10%,#1e1b4b,transparent),var(--bg);color:var(--ink);line-height:1.55;min-height:100vh}
+.wrap{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+header{padding:48px 0 28px;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.03em}
+.lead{color:var(--muted);max-width:42rem;margin-top:10px}
+.btn{display:inline-flex;padding:12px 18px;border-radius:12px;background:var(--acc);color:#fff;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:inherit}
+.grid{display:grid;gap:18px;padding:12px 0 40px;grid-template-columns:1fr}
+@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:12px;min-height:100%}
+.card .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.card h2{font-size:1.15rem}.card h2 a{color:inherit;text-decoration:none}.card h2 a:hover{color:#a5b4fc}
+.card ul{margin-left:18px;color:var(--muted);font-size:.9rem}
+.card .open{margin-top:auto;align-self:flex-start;padding:8px 12px;border-radius:10px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:600}
+.card .open:hover{border-color:var(--acc);color:#c7d2fe}
+footer{padding:20px 0 40px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;color:var(--muted);font-size:.9rem}
+.foot-note{width:100%;margin-top:8px;padding:12px 14px;border-radius:12px;background:#121826;border:1px dashed #334155;color:#94a3b8;font-size:.85rem;display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.foot-note[hidden]{display:none!important}
+.foot-note button{flex-shrink:0;background:transparent;border:1px solid #475569;color:#cbd5e1;border-radius:8px;padding:4px 8px;cursor:pointer;font:inherit;font-size:.75rem}
+.badge{display:inline-block;background:#dc2626;color:#fff;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;margin-bottom:10px}
+</style></head><body>
+<div class="wrap">
+<header>
+<div>
+<span class="badge">Демо-проекты</span>
+<h1>8 типов сайтов · разные стили</h1>
+<p class="lead">Магазин, личный сайт, онлайн-школа, стоматология, кофейня, ЖК, SaaS и автосервис с квиз-оценкой. Статический HTML/CSS/JS. Формы только показывают «Спасибо».</p>
+</div>
+<a class="btn" data-kwork href="https://kwork.ru/user/korikovdd">Заказать на Kwork</a>
+</header>
+<section class="grid">
+<article class="card">
+<div class="tag">E-commerce · nordic</div>
+<h2><a href="shop/">NordHive</a></h2>
+<ul><li>Каталог с фильтрами</li><li>Карточка товара</li><li>Демо-корзина (localStorage)</li><li>Мультистраница 3 стр.</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="shop/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">Личный сайт · психолог</div>
+<h2><a href="personal/">Анна Весна</a></h2>
+<ul><li>Личный сайт эксперта</li><li>Мягкий editorial UI</li><li>Запись на консультацию (демо)</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="personal/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">Онлайн-школа · swiss</div>
+<h2><a href="school/">SkillForma</a></h2>
+<ul><li>Swiss-grid онлайн-школа</li><li>Программа / тарифы / преподаватели</li><li>Мультистраница 3 стр.</li><li>Квиз трека</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="school/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">Стоматология · clinical</div>
+<h2><a href="dental/">Белая Улыбка</a></h2>
+<ul><li>Услуги / врачи / запись</li><li>Спокойный clinical UI</li><li>Мультистраница 3–4 стр.</li><li>Демо-запись</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="dental/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">Кофейня · menu</div>
+<h2><a href="cafe/">Зерно</a></h2>
+<ul><li>Меню с категориями</li><li>Тёплый paper UI</li><li>Поднос заказа (демо)</li><li>Бронь стола</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="cafe/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">ЖК · glass</div>
+<h2><a href="realty/">Северный Квартал</a></h2>
+<ul><li>Glassmorphism ЖК</li><li>Карусель планировок</li><li>Ипотечный калькулятор</li><li>SVG-карта района</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="realty/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">SaaS · gradient</div>
+<h2><a href="saas/">Flowly</a></h2>
+<ul><li>SaaS/app landing</li><li>Градиентный dark UI</li><li>Тарифы + feature grid</li><li>Интерактивный UI mock</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="saas/">Открыть демо →</a>
+</article>
+<article class="card">
+<div class="tag">Автосервис · quiz</div>
+<h2><a href="autoservice/">МоторЛаб</a></h2>
+<ul><li>Dark premium UI</li><li>Квиз-оценка стоимости</li><li>Счётчики + FAQ</li><li>Демо-форма</li><li>Адаптив 1920/1440/1024/768/390</li><li>Метка «Демо-проект»</li></ul>
+<a class="open" href="autoservice/">Открыть демо →</a>
+</article>
+</section>
+<footer>
+<div>© демо-портфолио · вымышленные бренды · без реальных контактов</div>
+<a class="btn" data-kwork href="https://kwork.ru/user/korikovdd" style="padding:10px 14px;font-size:.85rem">Заказать на Kwork</a>
+<div class="foot-note" id="ru-host-note" data-toggleable="1">
+<span>Демо размещены на бесплатном хостинге, у некоторых провайдеров РФ может открываться медленно</span>
+<button type="button" id="ru-host-hide" title="Скрыть сноску">Скрыть</button>
+</div>
+</footer>
+</div>
+<script>
+(function(){
+  var note=document.getElementById('ru-host-note'), btn=document.getElementById('ru-host-hide');
+  try{ if(localStorage.getItem('hideRuHostNote')==='1') note.hidden=true; }catch(e){}
+  if(btn){btn.addEventListener('click',function(){ note.hidden=true; try{localStorage.setItem('hideRuHostNote','1');}catch(e){} });}
+})();
+</script>
+<script src="config.js"></script>
+<script src="kwork-link.js" defer></script>
+</body></html>

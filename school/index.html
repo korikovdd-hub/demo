@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio Grid — демо онлайн-школа</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preload" as="image" href="img/teachers-720.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;600;700;800&display=swap"></noscript>
+<style>
+:root{--bg:#fafafa;--ink:#111;--mut:#525252;--line:#111;--acc:#111}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.wrap{width:min(1080px,calc(100% - 28px));margin-inline:auto}a{color:inherit;text-decoration:none}
+.top{border-bottom:3px solid #111;background:#fff;position:sticky;top:0;z-index:20}
+.bar{height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.2rem;letter-spacing:-.03em}
+nav{display:flex;gap:16px;font-weight:700;font-size:.9rem}
+.hero{padding:36px 0;display:grid;gap:24px;border-bottom:3px solid #111}@media(min-width:880px){.hero{grid-template-columns:1.1fr .9fr;align-items:center}}
+.hero-photo{border:3px solid #111;aspect-ratio:16/10;overflow:hidden;background:#e5e5e5;box-shadow:8px 8px 0 #111}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(2rem,5vw,3.1rem);line-height:1.05;letter-spacing:-.03em;margin:10px 0 14px}
+.lead{color:var(--mut);max-width:40ch;font-size:1.05rem}
+.btn{display:inline-flex;padding:12px 16px;background:#111;color:#fff;font-weight:800;border:3px solid #111;cursor:pointer;font:inherit;text-decoration:none;align-items:center}
+.btn.ghost{background:#fff;color:#111}
+section{padding:36px 0;border-bottom:3px solid #111}h2{font-family:"Space Grotesk",sans-serif;font-size:1.5rem;margin-bottom:14px}
+.grid{display:grid;gap:12px}@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{border:3px solid #111;background:#fff;padding:16px;box-shadow:4px 4px 0 #111}
+.mut{color:var(--mut);font-size:.92rem}
+.quiz .opt{display:block;width:100%;text-align:left;padding:12px;margin:8px 0;border:3px solid #111;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+.quiz .opt:hover,.quiz .opt.on{background:#111;color:#fff}
+footer{padding:28px 0 120px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.9rem;color:var(--mut)}
+</style></head><body>
+<div class="mark">Демо-проект</div>
+<header class="top"><div class="wrap bar"><a class="logo" href="index.html">Studio Grid</a>
+<nav><a href="program.html">Программа</a><a href="pricing.html">Тарифы</a></nav></div></header>
+
+<section class="wrap hero">
+<div>
+<p class="mut" style="font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.75rem">Online school · swiss · демо</p>
+<h1>Продуктовый дизайн за 8 недель</h1>
+<p class="lead">Вымышленная школа Studio Grid. Программа, тарифы, преподаватели и квиз трека — без реальной оплаты.</p>
+<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+<a class="btn" href="program.html">Программа</a>
+<a class="btn ghost" href="pricing.html">Тарифы</a>
+</div>
+</div>
+<div class="hero-photo"><img src="img/teachers-720.webp" srcset="img/teachers-720.webp 720w, img/teachers.webp 1280w" sizes="(max-width:880px) 100vw, 50vw" width="1280" height="720" alt="Преподаватели школы" fetchpriority="high"></div>
+</section>
+<section class="wrap"><h2>Преподаватели</h2>
+<div class="grid">
+<div class="card"><strong>Ника Сергеева</strong><p class="mut" style="margin-top:6px">Product design · 10 лет</p></div>
+<div class="card"><strong>Олег Мамин</strong><p class="mut" style="margin-top:6px">Research · UX writing</p></div>
+<div class="card"><strong>Яна Ким</strong><p class="mut" style="margin-top:6px">Design systems</p></div>
+</div></section>
+<section class="wrap quiz" id="quiz"><h2>Квиз: какой трек?</h2>
+<p class="mut">Выберите ближе к вам — покажем рекомендацию.</p>
+<button type="button" class="opt" data-t="ui">Хочу собирать интерфейсы</button>
+<button type="button" class="opt" data-t="ux">Хочу исследовать пользователей</button>
+<button type="button" class="opt" data-t="sys">Хочу дизайн-системы</button>
+<p id="quiz-out" style="margin-top:12px;font-weight:800"></p>
+</section>
+<footer class="wrap"><div>© Studio Grid · демо · без реальной оплаты</div>
+<a class="btn" data-kwork href="https://kwork.ru/user/korikovdd">Заказать на Kwork</a></footer>
+
+<style>
+#demo-chip{position:fixed;right:14px;bottom:14px;z-index:70;max-width:min(360px,calc(100vw - 28px));font-size:13px}
+#demo-chip-toggle{width:100%;text-align:left;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.2);background:#111;border:3px solid #111;color:#fff}
+#demo-chip-panel{display:none;margin-top:8px;border-radius:14px;padding:14px;max-height:min(50vh,360px);overflow:auto;background:#fff;border:3px solid #111;color:#111}
+#demo-chip-panel.open{display:block}
+#demo-chip-panel ul{margin:8px 0 12px 18px}
+#demo-chip .kw{display:inline-flex;margin-top:4px;padding:10px 14px;border-radius:10px;font-weight:800;font-size:12px;text-decoration:none;background:#111;color:#fff}
+@media(max-width:390px){#demo-chip{left:10px;right:10px;max-width:none}#demo-chip-panel{max-height:38vh}}
+.mark{position:fixed;top:14px;left:14px;z-index:60;background:#dc2626;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px}
+</style>
+<aside id="demo-chip"><button type="button" id="demo-chip-toggle" aria-expanded="false">Демо-проект · что сделано ▾</button>
+<div id="demo-chip-panel"><strong>Studio Grid — онлайн-школа</strong><ul><li>Swiss-grid UI</li><li>Фото преподавателей</li><li>Программа / тарифы</li><li>Квиз трека</li><li>Мультистраница 3 стр.</li><li>Адаптив 5 ширин</li></ul>
+<a class="kw" data-kwork href="KWORK_PROFILE_URL">Хочу такой → заказать на Kwork</a></div></aside>
+<script>
+var map={ui:'Трек UI Design',ux:'Трек UX Research',sys:'Трек Design Systems'};
+document.querySelectorAll('.quiz .opt').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.quiz .opt').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on'); document.getElementById('quiz-out').textContent='Вам подойдёт: '+map[b.dataset.t];
+  });
+});
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('demo-chip-toggle'), panel=document.getElementById('demo-chip-panel');
+  if(btn&&panel){btn.addEventListener('click',function(){var o=panel.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('form[data-demo-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var box=f.querySelector('[data-thanks]'); if(!box){box=document.createElement('p');box.setAttribute('data-thanks','');f.appendChild(box);}
+      box.textContent='Спасибо! Это демо-форма — заявка никуда не отправлена.'; box.style.marginTop='12px'; f.reset();
+    });
+  });
+})();
+</script>
+<script src="../config.js"></script>
+<script src="../kwork-link.js"></script>
+
+</body></html>

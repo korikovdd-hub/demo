@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drip & Grain — демо кафе</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preload" as="image" href="img/interior-720.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700&display=swap"></noscript>
+<style>
+:root{--bg:#f3e8d8;--ink:#2c1c12;--mut:#5c4030;--line:#e0cfb8;--card:#fff8ee;--acc:#c45c26}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;background-image:radial-gradient(rgba(44,28,18,.04) 1px,transparent 1px);background-size:18px 18px}
+.wrap{width:min(1080px,calc(100% - 28px));margin-inline:auto}a{color:inherit;text-decoration:none}
+.top{padding:16px 0;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:1.35rem}
+.hero{padding:12px 0 36px;display:grid;gap:22px}@media(min-width:880px){.hero{grid-template-columns:1.1fr .9fr;align-items:center}}
+.hero-photo{border-radius:28px;overflow:hidden;aspect-ratio:16/11;box-shadow:0 28px 50px -28px rgba(60,30,10,.5);background:#d4b896}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:Fraunces,serif;font-size:clamp(2.3rem,5.5vw,3.5rem);line-height:1.05;margin:10px 0 14px}
+.lead{color:var(--mut);font-size:1.05rem;max-width:40ch}
+.btn{display:inline-flex;padding:12px 18px;background:var(--acc);color:#fff8ee;border-radius:999px;font-weight:700;border:0;cursor:pointer;font:inherit;text-decoration:none;align-items:center}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 18px}
+.tabs button{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font:inherit;cursor:pointer;font-weight:600}
+.tabs button.on{background:var(--ink);color:#fff8ee;border-color:var(--ink)}
+.menu{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));padding-bottom:40px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.item .ph{aspect-ratio:1;overflow:hidden;background:#e8d5bc}
+.item .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.item .b{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.item .price{font-weight:800}
+.mut{color:var(--mut);font-size:.92rem}
+.tray{position:fixed;left:14px;bottom:14px;z-index:50;background:var(--ink);color:#fff8ee;padding:12px 16px;border-radius:16px;font-weight:700;box-shadow:0 12px 40px rgba(0,0,0,.25);max-width:min(320px,calc(100vw - 28px))}
+.book{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;margin:20px 0 80px}
+footer{padding:24px 0 130px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:var(--mut);font-size:.9rem;border-top:1px solid var(--line)}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);margin-bottom:8px;font:inherit;background:#fff}
+</style></head><body>
+<div class="mark">Демо-проект</div>
+<header class="wrap top"><div class="logo">Drip &amp; Grain</div><a class="btn ghost" href="#book">Бронь</a></header>
+<section class="wrap hero">
+<div>
+<p class="mut" style="font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem">Specialty · paper UI · демо</p>
+<h1>Обжарка дня и тихие столы</h1>
+<p class="lead">Вымышленная кофейня. Меню с категориями, поднос заказа и бронь стола — без реальной оплаты.</p>
+<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+<a class="btn" href="#menu">Меню</a>
+<a class="btn ghost" href="#book">Забронировать стол</a>
+</div>
+</div>
+<div class="hero-photo"><img src="img/interior-720.webp" srcset="img/interior-720.webp 720w, img/interior.webp 1280w" sizes="(max-width:880px) 100vw, 50vw" width="1280" height="720" alt="Интерьер кофейни" fetchpriority="high"></div>
+</section>
+<section class="wrap" id="menu">
+<div class="tabs">
+<button type="button" class="on" data-cat="all">Всё</button>
+<button type="button" data-cat="coffee">Кофе</button>
+<button type="button" data-cat="food">Еда</button>
+<button type="button" data-cat="sweet">Десерты</button>
+</div>
+<div class="menu" id="menu-grid">
+<article class="item" data-cat="coffee"><div class="ph"><img src="img/latte.webp" srcset="img/latte.webp 640w" sizes="(max-width:600px) 50vw, 220px" width="640" height="640" alt="Латте" loading="lazy"></div><div class="b"><strong>Flat White</strong><p class="mut">Двойной эспрессо · молоко</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span class="price">320 ₽</span><button class="btn" type="button" data-add="Flat White" style="padding:8px 12px;font-size:.85rem">+</button></div></div></article>
+<article class="item" data-cat="food"><div class="ph"><img src="img/food.webp" srcset="img/food.webp 640w" sizes="(max-width:600px) 50vw, 220px" width="640" height="640" alt="Сэндвич" loading="lazy"></div><div class="b"><strong>Сэндвич с авокадо</strong><p class="mut">Хлеб на закваске</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span class="price">490 ₽</span><button class="btn" type="button" data-add="Сэндвич" style="padding:8px 12px;font-size:.85rem">+</button></div></div></article>
+<article class="item" data-cat="sweet"><div class="ph"><img src="img/dessert.webp" srcset="img/dessert.webp 640w" sizes="(max-width:600px) 50vw, 220px" width="640" height="640" alt="Десерт" loading="lazy"></div><div class="b"><strong>Тарталетка</strong><p class="mut">Сезонная начинка</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span class="price">280 ₽</span><button class="btn" type="button" data-add="Тарталетка" style="padding:8px 12px;font-size:.85rem">+</button></div></div></article>
+<article class="item" data-cat="coffee"><div class="ph"><img src="img/latte.webp" srcset="img/latte.webp 640w" sizes="(max-width:600px) 50vw, 220px" width="640" height="640" alt="Капучино" loading="lazy"></div><div class="b"><strong>Капучино</strong><p class="mut">Классика 200 мл</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto"><span class="price">290 ₽</span><button class="btn" type="button" data-add="Капучино" style="padding:8px 12px;font-size:.85rem">+</button></div></div></article>
+</div>
+</section>
+<section class="wrap book" id="book">
+<h2 style="font-family:Fraunces,serif;font-size:1.6rem;margin-bottom:8px">Бронь стола</h2>
+<p class="mut" style="margin-bottom:12px">Демо-форма — без реальной брони.</p>
+<form data-demo-form>
+<input name="n" required placeholder="Имя">
+<input name="p" required placeholder="+7 (000) 000-00-00">
+<input name="t" type="time" required aria-label="Время">
+<button class="btn" type="submit">Забронировать</button>
+</form>
+</section>
+<div class="tray" id="tray">Поднос: пусто</div>
+<footer class="wrap"><div>© Drip &amp; Grain · демо · без оплаты</div>
+<a class="btn" data-kwork href="https://kwork.ru/user/korikovdd">Заказать на Kwork</a></footer>
+
+<style>
+#demo-chip{position:fixed;right:14px;bottom:14px;z-index:70;max-width:min(360px,calc(100vw - 28px));font-size:13px}
+#demo-chip-toggle{width:100%;text-align:left;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.2);background:#3f2a1e;border:1px solid #5c3d2e;color:#f5e6d3}
+#demo-chip-panel{display:none;margin-top:8px;border-radius:14px;padding:14px;max-height:min(50vh,360px);overflow:auto;background:#2a1c14;border:1px solid #5c3d2e;color:#d9c4a8}
+#demo-chip-panel.open{display:block}
+#demo-chip-panel ul{margin:8px 0 12px 18px}
+#demo-chip .kw{display:inline-flex;margin-top:4px;padding:10px 14px;border-radius:10px;font-weight:800;font-size:12px;text-decoration:none;background:#f0a05a;color:#2a1c14}
+@media(max-width:390px){#demo-chip{left:10px;right:10px;max-width:none}#demo-chip-panel{max-height:38vh}}
+.mark{position:fixed;top:14px;left:14px;z-index:60;background:#dc2626;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px}
+</style>
+<aside id="demo-chip"><button type="button" id="demo-chip-toggle" aria-expanded="false">Демо-проект · что сделано ▾</button>
+<div id="demo-chip-panel"><strong>Drip & Grain — кафе</strong><ul><li>Тёплый paper UI</li><li>Меню с фото</li><li>Поднос заказа</li><li>Бронь стола</li><li>Адаптив 5 ширин</li><li>Метка «Демо-проект»</li></ul>
+<a class="kw" data-kwork href="KWORK_PROFILE_URL">Хочу такой → заказать на Kwork</a></div></aside>
+<script>
+(function(){
+  var tray=[], el=document.getElementById('tray');
+  function draw(){el.textContent=tray.length?'Поднос: '+tray.join(', '):'Поднос: пусто';}
+  document.querySelectorAll('[data-add]').forEach(function(b){b.addEventListener('click',function(){tray.push(b.dataset.add);draw();});});
+  document.querySelectorAll('.tabs button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.tabs button').forEach(function(x){x.classList.remove('on');});
+      btn.classList.add('on');
+      var c=btn.dataset.cat;
+      document.querySelectorAll('#menu-grid .item').forEach(function(it){
+        it.style.display=(c==='all'||it.dataset.cat===c)?'':'none';
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('demo-chip-toggle'), panel=document.getElementById('demo-chip-panel');
+  if(btn&&panel){btn.addEventListener('click',function(){var o=panel.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('form[data-demo-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var box=f.querySelector('[data-thanks]'); if(!box){box=document.createElement('p');box.setAttribute('data-thanks','');f.appendChild(box);}
+      box.textContent='Спасибо! Это демо-форма — заявка никуда не отправлена.'; box.style.marginTop='12px'; f.reset();
+    });
+  });
+})();
+</script>
+<script src="../config.js"></script>
+<script src="../kwork-link.js"></script>
+
+</body></html>

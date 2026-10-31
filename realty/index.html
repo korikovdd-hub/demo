@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Лагуна Парк — демо ЖК</title>
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="preload" as="image" href="img/building-720.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap"></noscript>
+<style>
+:root{--bg:#070b14;--ink:#e2e8f0;--mut:#94a3b8;--line:#1e293b;--acc:#38bdf8;--card:rgba(15,23,42,.72)}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;background-image:radial-gradient(ellipse at 20% 0%,#0c4a6e55,transparent 50%),radial-gradient(ellipse at 80% 20%,#1e3a5f44,transparent 45%)}
+.wrap{width:min(1120px,calc(100% - 28px));margin-inline:auto}a{color:inherit;text-decoration:none}
+.top{padding:16px 0;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:-.03em}
+.hero{padding:28px 0 20px;display:grid;gap:24px}@media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr;align-items:center}}
+.hero-photo{border-radius:24px;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line);box-shadow:0 40px 80px -40px #0ea5e966;background:#0f172a}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:Montserrat,sans-serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1.06;letter-spacing:-.03em;margin:10px 0 14px}
+.lead{color:var(--mut);max-width:42ch;font-size:1.05rem}
+.btn{display:inline-flex;padding:12px 18px;background:var(--acc);color:#082f49;border-radius:12px;font-weight:800;border:0;cursor:pointer;font:inherit;text-decoration:none;align-items:center}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid #334155}
+.glass{background:var(--card);backdrop-filter:blur(16px);border:1px solid #334155;border-radius:20px;padding:18px}
+section{padding:36px 0}h2{font-family:Montserrat,sans-serif;font-size:1.45rem;margin-bottom:14px}
+.plans{display:grid;gap:14px}@media(min-width:800px){.plans{grid-template-columns:220px 1fr}}
+.plist button{display:block;width:100%;text-align:left;padding:12px 14px;margin-bottom:8px;border-radius:12px;border:1px solid #334155;background:#0f172a;color:var(--ink);font:inherit;cursor:pointer;font-weight:600}
+.plist button.on{border-color:var(--acc);background:#0c4a6e}
+.planview{border-radius:16px;overflow:hidden;border:1px solid #334155;background:#0b1220;min-height:280px}
+.planview svg{width:100%;height:auto;display:block}
+.calc label{display:block;margin:10px 0 4px;font-size:.85rem;color:var(--mut)}
+.calc input[type=range]{width:100%}
+.mut{color:var(--mut);font-size:.92rem}
+.map{border-radius:16px;overflow:hidden;border:1px solid #334155;background:#0f172a;aspect-ratio:2/1}
+.map svg{width:100%;height:100%}
+footer{padding:28px 0 120px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:var(--mut);font-size:.9rem}
+</style></head><body>
+<div class="mark">Демо-проект</div>
+<header class="wrap top"><div class="logo">Лагуна Парк</div><a class="btn ghost" href="#lead">Заявка</a></header>
+<section class="wrap hero">
+<div>
+<p class="mut" style="font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem">ЖК · glass · демо</p>
+<h1>Квартиры у парка с видом на воду</h1>
+<p class="lead">Вымышленный жилой комплекс. Планировки с размерами, ипотечный калькулятор и карта района — без реальных продаж.</p>
+<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+<a class="btn" href="#plans">Планировки</a>
+<a class="btn ghost" href="#mortgage">Ипотека</a>
+</div>
+</div>
+<div class="hero-photo"><img src="img/building-720.webp" srcset="img/building-720.webp 640w, img/building.webp 960w" sizes="(max-width:900px) 100vw, 540px" width="960" height="540" alt="Рендер корпуса ЖК" fetchpriority="high"></div>
+</section>
+<section class="wrap" id="plans"><h2>Планировки</h2>
+<div class="plans">
+<div class="plist">
+<button type="button" class="on" data-plan="a">2К · 58 м² · от 9.8 млн</button>
+<button type="button" data-plan="b">1К · 38 м² · от 6.4 млн</button>
+<button type="button" data-plan="c">3К · 84 м² · от 14.2 млн</button>
+</div>
+<div class="planview" id="planview"><svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Планировка 2К 58 м²">
+<rect width="640" height="420" fill="#0b1220"/>
+<rect x="24" y="24" width="592" height="372" rx="8" fill="#111827" stroke="#334155" stroke-width="2"/>
+<!-- living -->
+<rect x="40" y="40" width="300" height="220" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="190" y="145" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="16" font-weight="700">Гостиная</text>
+<text x="190" y="168" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="13">22.4 м² · 5.6×4.0</text>
+<!-- kitchen -->
+<rect x="40" y="270" width="300" height="110" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="190" y="320" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="15" font-weight="700">Кухня</text>
+<text x="190" y="342" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">11.2 м² · 5.6×2.0</text>
+<!-- bedroom -->
+<rect x="350" y="40" width="250" height="200" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="475" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="15" font-weight="700">Спальня</text>
+<text x="475" y="152" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">14.8 м² · 4.5×3.3</text>
+<!-- bath -->
+<rect x="350" y="250" width="120" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="410" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="13" font-weight="700">С/у</text>
+<text x="410" y="330" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="11">4.2 м²</text>
+<!-- hall -->
+<rect x="480" y="250" width="120" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="540" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="13" font-weight="700">Холл</text>
+<text x="540" y="330" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="11">5.4 м²</text>
+<!-- dims -->
+<text x="320" y="408" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="13" font-weight="700">2К · 58.0 м² · высота 2.75 м</text>
+</svg></div>
+</div></section>
+<section class="wrap" id="mortgage"><h2>Ипотечный калькулятор</h2>
+<div class="glass calc">
+<label for="price">Стоимость: <span id="pricelab">9800000</span> ₽</label>
+<input id="price" type="range" min="5000000" max="20000000" step="100000" value="9800000">
+<label for="down">Первый взнос: <span id="downlab">20</span>%</label>
+<input id="down" type="range" min="10" max="50" step="1" value="20">
+<label for="years">Срок: <span id="yearslab">20</span> лет</label>
+<input id="years" type="range" min="5" max="30" step="1" value="20">
+<p style="margin-top:16px;font-size:1.35rem;font-weight:800">Платёж ≈ <span id="pay">—</span> ₽/мес</p>
+<p class="mut">Ставка демо 12% годовых. Не оферта.</p>
+</div></section>
+<section class="wrap"><h2>Район</h2>
+<div class="map">
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+<rect width="400" height="200" fill="#0f172a"/>
+<path d="M0 140 Q80 100 160 130 T320 110 T400 140 L400 200 L0 200 Z" fill="#0c4a6e" opacity=".7"/>
+<circle cx="200" cy="90" r="14" fill="#38bdf8"/>
+<text x="200" y="70" text-anchor="middle" fill="#e2e8f0" font-size="12" font-family="system-ui" font-weight="700">Лагуна Парк</text>
+<rect x="40" y="40" width="50" height="30" rx="4" fill="#1e293b" stroke="#475569"/><text x="65" y="58" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="system-ui">школа</text>
+<rect x="300" y="50" width="55" height="30" rx="4" fill="#1e293b" stroke="#475569"/><text x="327" y="68" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="system-ui">парк</text>
+<rect x="250" y="140" width="60" height="28" rx="4" fill="#1e293b" stroke="#475569"/><text x="280" y="158" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="system-ui">метро 8′</text>
+</svg>
+</div></section>
+<section class="wrap glass" id="lead" style="margin-bottom:40px">
+<h2>Оставить заявку</h2>
+<p class="mut" style="margin-bottom:10px">Демо-форма — без реальных контактов менеджера.</p>
+<form data-demo-form>
+<label class="mut" for="rn">Имя</label>
+<input id="rn" name="n" required style="width:100%;margin:6px 0 10px;padding:10px;border-radius:10px;border:1px solid #334155;background:#0b1220;color:#fff;font:inherit">
+<label class="mut" for="rp">Телефон</label>
+<input id="rp" name="p" required placeholder="+7 (000) 000-00-00" style="width:100%;margin:6px 0 10px;padding:10px;border-radius:10px;border:1px solid #334155;background:#0b1220;color:#fff;font:inherit">
+<button class="btn" type="submit">Отправить</button>
+</form>
+</section>
+<footer class="wrap"><div>© Лагуна Парк · демо · без реальных продаж</div>
+<a class="btn" data-kwork href="https://kwork.ru/user/korikovdd">Заказать на Kwork</a></footer>
+
+<style>
+#demo-chip{position:fixed;right:14px;bottom:14px;z-index:70;max-width:min(360px,calc(100vw - 28px));font-size:13px}
+#demo-chip-toggle{width:100%;text-align:left;border-radius:14px;padding:12px 14px;cursor:pointer;font:inherit;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.2);background:#0ea5e9;border:1px solid #38bdf8;color:#082f49}
+#demo-chip-panel{display:none;margin-top:8px;border-radius:14px;padding:14px;max-height:min(50vh,360px);overflow:auto;background:rgba(15,23,42,.92);border:1px solid #334155;color:#cbd5e1}
+#demo-chip-panel.open{display:block}
+#demo-chip-panel ul{margin:8px 0 12px 18px}
+#demo-chip .kw{display:inline-flex;margin-top:4px;padding:10px 14px;border-radius:10px;font-weight:800;font-size:12px;text-decoration:none;background:#38bdf8;color:#082f49}
+@media(max-width:390px){#demo-chip{left:10px;right:10px;max-width:none}#demo-chip-panel{max-height:38vh}}
+.mark{position:fixed;top:14px;left:14px;z-index:60;background:#dc2626;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px}
+</style>
+<aside id="demo-chip"><button type="button" id="demo-chip-toggle" aria-expanded="false">Демо-проект · что сделано ▾</button>
+<div id="demo-chip-panel"><strong>Лагуна Парк — ЖК</strong><ul><li>Glassmorphism UI</li><li>Рендер корпуса</li><li>SVG-планировки с размерами</li><li>Ипотечный калькулятор</li><li>SVG-карта района</li><li>Адаптив 5 ширин</li></ul>
+<a class="kw" data-kwork href="KWORK_PROFILE_URL">Хочу такой → заказать на Kwork</a></div></aside>
+<script>
+var PLANS={a:`<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Планировка 2К 58 м²">
+<rect width="640" height="420" fill="#0b1220"/>
+<rect x="24" y="24" width="592" height="372" rx="8" fill="#111827" stroke="#334155" stroke-width="2"/>
+<!-- living -->
+<rect x="40" y="40" width="300" height="220" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="190" y="145" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="16" font-weight="700">Гостиная</text>
+<text x="190" y="168" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="13">22.4 м² · 5.6×4.0</text>
+<!-- kitchen -->
+<rect x="40" y="270" width="300" height="110" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="190" y="320" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="15" font-weight="700">Кухня</text>
+<text x="190" y="342" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">11.2 м² · 5.6×2.0</text>
+<!-- bedroom -->
+<rect x="350" y="40" width="250" height="200" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="475" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="15" font-weight="700">Спальня</text>
+<text x="475" y="152" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">14.8 м² · 4.5×3.3</text>
+<!-- bath -->
+<rect x="350" y="250" width="120" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="410" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="13" font-weight="700">С/у</text>
+<text x="410" y="330" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="11">4.2 м²</text>
+<!-- hall -->
+<rect x="480" y="250" width="120" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="540" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="13" font-weight="700">Холл</text>
+<text x="540" y="330" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="11">5.4 м²</text>
+<!-- dims -->
+<text x="320" y="408" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="13" font-weight="700">2К · 58.0 м² · высота 2.75 м</text>
+</svg>`,b:`<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Планировка 1К 38 м²">
+<rect width="640" height="420" fill="#0b1220"/>
+<rect x="24" y="24" width="592" height="372" rx="8" fill="#111827" stroke="#334155" stroke-width="2"/>
+<rect x="40" y="40" width="360" height="340" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="220" y="200" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="16" font-weight="700">Студия</text>
+<text x="220" y="224" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="13">28.6 м² · 7.2×4.0</text>
+<rect x="410" y="40" width="190" height="160" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="505" y="115" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">Кухня</text>
+<text x="505" y="136" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">6.8 м²</text>
+<rect x="410" y="210" width="190" height="170" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="505" y="290" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">С/у + холл</text>
+<text x="505" y="312" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">2.6 м²</text>
+<text x="320" y="408" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="13" font-weight="700">1К · 38.0 м² · высота 2.75 м</text>
+</svg>`,c:`<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Планировка 3К 84 м²">
+<rect width="640" height="420" fill="#0b1220"/>
+<rect x="24" y="24" width="592" height="372" rx="8" fill="#111827" stroke="#334155" stroke-width="2"/>
+<rect x="40" y="40" width="250" height="200" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="165" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">Гостиная</text>
+<text x="165" y="152" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">24.0 м²</text>
+<rect x="300" y="40" width="160" height="200" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="380" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">Спальня 1</text>
+<text x="380" y="152" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">14.2 м²</text>
+<rect x="470" y="40" width="146" height="200" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="543" y="130" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">Спальня 2</text>
+<text x="543" y="152" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">12.8 м²</text>
+<rect x="40" y="250" width="200" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="140" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">Кухня</text>
+<text x="140" y="332" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">13.5 м²</text>
+<rect x="250" y="250" width="180" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="340" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">Холл</text>
+<text x="340" y="332" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">10.5 м²</text>
+<rect x="440" y="250" width="176" height="130" rx="4" fill="#1e293b" stroke="#64748b"/>
+<text x="528" y="310" text-anchor="middle" fill="#e2e8f0" font-family="system-ui" font-size="14" font-weight="700">С/у ×2</text>
+<text x="528" y="332" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="12">9.0 м²</text>
+<text x="320" y="408" text-anchor="middle" fill="#38bdf8" font-family="system-ui" font-size="13" font-weight="700">3К · 84.0 м² · высота 2.75 м</text>
+</svg>`};
+document.querySelectorAll('.plist button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.plist button').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on'); document.getElementById('planview').innerHTML=PLANS[b.dataset.plan];
+  });
+});
+function mortgage(){
+  var price=+document.getElementById('price').value, down=+document.getElementById('down').value, years=+document.getElementById('years').value;
+  document.getElementById('pricelab').textContent=price.toLocaleString('ru-RU');
+  document.getElementById('downlab').textContent=down; document.getElementById('yearslab').textContent=years;
+  var loan=price*(1-down/100), r=0.12/12, n=years*12;
+  var pay=loan*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  document.getElementById('pay').textContent=Math.round(pay).toLocaleString('ru-RU');
+}
+document.querySelectorAll('#price,#down,#years').forEach(function(el){el.addEventListener('input',mortgage);});
+mortgage();
+</script>
+
+<script>
+(function(){
+  var btn=document.getElementById('demo-chip-toggle'), panel=document.getElementById('demo-chip-panel');
+  if(btn&&panel){btn.addEventListener('click',function(){var o=panel.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('form[data-demo-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();
+      var box=f.querySelector('[data-thanks]'); if(!box){box=document.createElement('p');box.setAttribute('data-thanks','');f.appendChild(box);}
+      box.textContent='Спасибо! Это демо-форма — заявка никуда не отправлена.'; box.style.marginTop='12px'; f.reset();
+    });
+  });
+})();
+</script>
+<script src="../config.js"></script>
+<script src="../kwork-link.js"></script>
+
+</body></html>
